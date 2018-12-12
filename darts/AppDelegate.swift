@@ -14,8 +14,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // ここに初期化処理を書く
+        // UserDefaultsを使ってフラグを保持する
+        let ud = UserDefaults.standard
+        // "firstLaunch"をキーに、Bool型の値を保持する
+        let dict = ["firstLaunch": true]
+        // デフォルト値登録
+        // ※すでに値が更新されていた場合は、更新後の値のままになる
+        ud.register(defaults: dict)
+        
+        // "firstLaunch"に紐づく値がtrueなら(=初回起動)、値をfalseに更新して処理を行う
+        if ud.bool(forKey: "firstLaunch") {
+            ud.set(false, forKey: "firstLaunch")
+            ud.set("simple", forKey: "game_type")
+            ud.set("DL", forKey: "rating_type")
+            ud.set("701", forKey: "zeroone_type")
+            ud.set("15", forKey: "round_number")
+            ud.set(0, forKey: "max_score")
+            ud.synchronize()
+            print("初回起動の時だけ呼ばれるよ")
+        }
+        
+        
+
         return true
     }
 
