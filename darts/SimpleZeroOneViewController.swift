@@ -10,13 +10,14 @@ import UIKit
 
 class SimpleZeroOneViewController: UIViewController {
     
-    @IBOutlet var scoreLable: UILabel!
-    @IBOutlet var statLable: UILabel!
+    @IBOutlet var scoreLabel: UILabel!
+    @IBOutlet var statLabel: UILabel!
     @IBOutlet var hattricLabel: UILabel!
     @IBOutlet var lowtonLabel: UILabel!
     @IBOutlet var tonLabel: UILabel!
     @IBOutlet var misslLabel: UILabel!
     @IBOutlet var backButton:UIButton!
+    @IBOutlet var roundLabel:UILabel!
     // var Realm = RealmOption()
     var score = Double()
     var round = Int()
@@ -42,12 +43,15 @@ class SimpleZeroOneViewController: UIViewController {
         tmpCount = [""]
         ratingType = UserDefaults.standard.string(forKey: "rating_type")!
         
+        
+        
         stats = 0.0
         rating = Rating.zeroOneRating(score: stats, type: ratingType)
         classrating = Rating.ratingClass(rating: rating, type: ratingType)
         
-        scoreLable.text = String(rating) + ":" + classrating
-        statLable.text = String(stats)
+        scoreLabel.text = String(rating) + ":" + classrating
+        statLabel.text = String(stats)
+        roundLabel.text = String(round + 1) + "Round"
         hattricLabel.text = "0"
         lowtonLabel.text = "0"
         tonLabel.text = "0"
@@ -62,8 +66,9 @@ class SimpleZeroOneViewController: UIViewController {
         stats = Rating.zeroOneStats(score: score, throwCount: (round * 3), type: ratingType)
         rating = Rating.zeroOneRating(score: stats, type: ratingType)
         classrating = Rating.ratingClass(rating: rating, type: ratingType)
-        scoreLable.text = String(rating) + ":" + classrating
-        statLable.text = String(stats)
+        scoreLabel.text = String(rating) + ":" + classrating
+        statLabel.text = String(stats)
+        roundLabel.text = String(round + 1) + "Round"
         hattricLabel.text = String(hattricCount)
         tmpCount.append("hattrick")
 
@@ -77,8 +82,9 @@ class SimpleZeroOneViewController: UIViewController {
         stats = Rating.zeroOneStats(score: score, throwCount: (round * 3), type: ratingType)
         rating = Rating.zeroOneRating(score: stats, type: ratingType)
         classrating = Rating.ratingClass(rating: rating, type: ratingType)
-        scoreLable.text = String(rating) + ":" + classrating
-        statLable.text = String(stats)
+        scoreLabel.text = String(rating) + ":" + classrating
+        statLabel.text = String(stats)
+        roundLabel.text = String(round + 1) + "Round"
         lowtonLabel.text = String(lowtonCount)
         tmpCount.append("lowton")
     }
@@ -90,8 +96,9 @@ class SimpleZeroOneViewController: UIViewController {
         stats = Rating.zeroOneStats(score: score, throwCount: (round * 3), type: ratingType)
         rating = Rating.zeroOneRating(score: stats, type: ratingType)
         classrating = Rating.ratingClass(rating: rating, type: ratingType)
-        scoreLable.text = String(rating) + ":" + classrating
-        statLable.text = String(stats)
+        scoreLabel.text = String(rating) + ":" + classrating
+        statLabel.text = String(stats)
+        roundLabel.text = String(round + 1) + "Round"
         tonLabel.text = String(tonCount)
         tmpCount.append("ton")
     }
@@ -103,8 +110,9 @@ class SimpleZeroOneViewController: UIViewController {
         stats = Rating.zeroOneStats(score: score, throwCount: (round * 3), type: ratingType)
         rating = Rating.zeroOneRating(score: stats, type: ratingType)
         classrating = Rating.ratingClass(rating: rating, type: ratingType)
-        scoreLable.text = String(rating) + ":" + classrating
-        statLable.text = String(stats)
+        scoreLabel.text = String(rating) + ":" + classrating
+        statLabel.text = String(stats)
+        roundLabel.text = String(round + 1) + "Round"
         misslLabel.text = String(missCount)
         tmpCount.append("miss")
     }
@@ -155,8 +163,9 @@ class SimpleZeroOneViewController: UIViewController {
             stats = Rating.zeroOneStats(score: score, throwCount: (round * 3), type: ratingType)
             rating = Rating.zeroOneRating(score: stats, type: ratingType)
             classrating = Rating.ratingClass(rating: rating, type: ratingType)
-            scoreLable.text = String(rating) + ":" + classrating
-            statLable.text = String(stats)
+            scoreLabel.text = String(rating) + ":" + classrating
+            statLabel.text = String(stats)
+            roundLabel.text = String(round + 1) + "Round"
             tmpCount.removeLast()
         } else if round == 1 {
             switch tmpCount.last! {
@@ -180,8 +189,9 @@ class SimpleZeroOneViewController: UIViewController {
                 score -= 0
             }
             round -= 1
-            scoreLable.text = ""
-            statLable.text = ""
+            scoreLabel.text = ""
+            statLabel.text = ""
+            roundLabel.text = String(round + 1) + "Round"
             tmpCount.removeLast()
         }
     }

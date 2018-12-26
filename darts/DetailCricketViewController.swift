@@ -540,7 +540,7 @@ class DetailCricketViewController: UIViewController,UITableViewDelegate,UITableV
         fifteenButton.setTitleColor(UIColor.lightGray, for: .normal)
         switch number {
         case "BULL":
-            bullButton.setImage(UIImage(named: "1BULL.jpeg"), for: .normal)
+            bullButton.setImage(UIImage(named: "1BULL_50.jpeg"), for: .normal)
         case "20":
             twentyButton.setTitleColor(UIColor.red, for: .normal)
         case "19":
