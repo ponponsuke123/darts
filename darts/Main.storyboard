@@ -971,6 +971,7 @@
                         <outlet property="mark7Label" destination="MCH-vk-1Oh" id="8CP-Uw-jeb"/>
                         <outlet property="mark8Label" destination="SGe-pK-tkM" id="laa-XJ-ojz"/>
                         <outlet property="mark9Label" destination="5WZ-fP-uBr" id="gmh-XC-cKn"/>
+                        <outlet property="roundLabel" destination="1RV-Tx-Y8n" id="TJJ-RU-43o"/>
                         <outlet property="scoreLable" destination="gXT-0P-l8n" id="8M5-eK-Isn"/>
                         <outlet property="statLable" destination="PpP-fK-1Bv" id="FlY-90-Ky5"/>
                     </connections>

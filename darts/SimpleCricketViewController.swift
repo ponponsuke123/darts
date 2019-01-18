@@ -23,8 +23,7 @@ class SimpleCricketViewController: UIViewController {
     @IBOutlet var mark2Label: UILabel!
     @IBOutlet var mark1Label: UILabel!
     @IBOutlet var mark0Label: UILabel!
-
-
+    @IBOutlet var roundLabel:UILabel!
 
     var score = Double()
     var round = Int()
@@ -48,13 +47,7 @@ class SimpleCricketViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        ratingType = UserDefaults.standard.string(forKey: "rating_type")!
         stats = 0.0
-        rating = Rating.cricketRating(score: stats, type: ratingType)
-        classrating = Rating.ratingClass(rating: rating, type: ratingType)
-        scoreLable.text = String(rating) + ":" + classrating
-        statLable.text = String(stats)
-        
         score = 0.0
         round = 0
         mark9Count = 0
@@ -68,6 +61,12 @@ class SimpleCricketViewController: UIViewController {
         mark1Count = 0
         mark0Count = 0
         tmpCount = [0]
+        ratingType = UserDefaults.standard.string(forKey: "rating_type")!
+        rating = Rating.cricketRating(score: stats, type: ratingType)
+        classrating = Rating.ratingClass(rating: rating, type: ratingType)
+        scoreLable.text = String(rating) + ":" + classrating
+        statLable.text = String(stats)
+        roundLabel.text = String(round + 1) + "Round"
         
         mark9Label.text = "0"
         mark8Label.text = "0"
@@ -92,6 +91,7 @@ class SimpleCricketViewController: UIViewController {
         scoreLable.text = String(rating) + ":" + classrating
         statLable.text = String(stats)
         mark9Label.text = String(mark9Count)
+        roundLabel.text = String(round + 1) + "Round"
         tmpCount.append(9)
     }
 
@@ -105,6 +105,7 @@ class SimpleCricketViewController: UIViewController {
         scoreLable.text = String(rating) + ":" + classrating
         statLable.text = String(stats)
         mark8Label.text = String(mark8Count)
+        roundLabel.text = String(round + 1) + "Round"
         tmpCount.append(8)
     }
     
@@ -118,6 +119,7 @@ class SimpleCricketViewController: UIViewController {
         scoreLable.text = String(rating) + ":" + classrating
         statLable.text = String(stats)
         mark7Label.text = String(mark7Count)
+        roundLabel.text = String(round + 1) + "Round"
         tmpCount.append(7)
     }
 
@@ -131,6 +133,7 @@ class SimpleCricketViewController: UIViewController {
         scoreLable.text = String(rating) + ":" + classrating
         statLable.text = String(stats)
         mark6Label.text = String(mark6Count)
+        roundLabel.text = String(round + 1) + "Round"
         tmpCount.append(6)
     }
 
@@ -145,6 +148,7 @@ class SimpleCricketViewController: UIViewController {
         scoreLable.text = String(rating) + ":" + classrating
         statLable.text = String(stats)
         mark5Label.text = String(mark5Count)
+        roundLabel.text = String(round + 1) + "Round"
         tmpCount.append(5)
     }
 
@@ -159,6 +163,7 @@ class SimpleCricketViewController: UIViewController {
         scoreLable.text = String(rating) + ":" + classrating
         statLable.text = String(stats)
         mark4Label.text = String(mark4Count)
+        roundLabel.text = String(round + 1) + "Round"
         tmpCount.append(4)
     }
     
@@ -173,6 +178,7 @@ class SimpleCricketViewController: UIViewController {
         scoreLable.text = String(rating) + ":" + classrating
         statLable.text = String(stats)
         mark3Label.text = String(mark3Count)
+        roundLabel.text = String(round + 1) + "Round"
         tmpCount.append(3)
     }
 
@@ -186,6 +192,7 @@ class SimpleCricketViewController: UIViewController {
         scoreLable.text = String(rating) + ":" + classrating
         statLable.text = String(stats)
         mark2Label.text = String(mark2Count)
+        roundLabel.text = String(round + 1) + "Round"
         tmpCount.append(2)
     }
  
@@ -199,6 +206,7 @@ class SimpleCricketViewController: UIViewController {
         scoreLable.text = String(rating) + ":" + classrating
         statLable.text = String(stats)
         mark1Label.text = String(mark1Count)
+        roundLabel.text = String(round + 1) + "Round"
         tmpCount.append(1)
     }
 
@@ -212,6 +220,7 @@ class SimpleCricketViewController: UIViewController {
         scoreLable.text = String(rating) + ":" + classrating
         statLable.text = String(stats)
         mark0Label.text = String(mark0Count)
+        roundLabel.text = String(round + 1) + "Round"
         tmpCount.append(0)
     }
 
@@ -283,6 +292,7 @@ class SimpleCricketViewController: UIViewController {
             classrating = Rating.ratingClass(rating: rating, type: ratingType)
             scoreLable.text = String(rating) + ":" + classrating
             statLable.text = String(stats)
+            roundLabel.text = String(round + 1) + "Round"
             tmpCount.removeLast()
         } else if round == 1 {
             switch tmpCount.last! {
@@ -323,6 +333,7 @@ class SimpleCricketViewController: UIViewController {
             score = score - Double(tmpCount.last!)
             scoreLable.text = ""
             statLable.text = ""
+            roundLabel.text = String(round + 1) + "Round"
             tmpCount.removeLast()
         }
     }
